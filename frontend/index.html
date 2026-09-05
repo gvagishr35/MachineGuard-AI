@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>MachineGuard AI</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    background: #0b1117;
+
+    color: #e8edf2;
+}
+
+.app {
+
+    display: flex;
+
+    min-height: 100vh;
+}
+
+.sidebar {
+
+    width: 230px;
+
+    background: #111923;
+
+    border-right:
+        1px solid #263340;
+
+    padding: 25px 15px;
+}
+
+.logo {
+
+    font-size: 21px;
+
+    font-weight: bold;
+
+    margin-bottom: 35px;
+}
+
+.logo span {
+
+    color: #35d07f;
+}
+
+.nav-item {
+
+    padding: 13px 15px;
+
+    margin-bottom: 7px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    color: #9daab7;
+}
+
+.nav-item:hover,
+.nav-item.active {
+
+    background: #1c2935;
+
+    color: white;
+}
+
+.main {
+
+    flex: 1;
+
+    padding: 30px;
+
+    overflow-x: hidden;
+}
+
+.header {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+.header h1 {
+
+    font-size: 28px;
+}
+
+.subtitle {
+
+    color: #84919d;
+
+    margin-top: 7px;
+}
+
+.status {
+
+    background: #102b20;
+
+    color: #43e58d;
+
+    padding: 8px 14px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+}
+
+.cards {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 25px;
+}
+
+.card {
+
+    background: #111923;
+
+    border:
+        1px solid #263340;
+
+    border-radius: 12px;
+
+    padding: 20px;
+}
+
+.card-title {
+
+    color: #8d9aa7;
+
+    font-size: 13px;
+
+    margin-bottom: 12px;
+}
+
+.card-value {
+
+    font-size: 30px;
+
+    font-weight: bold;
+}
+
+.section {
+
+    background: #111923;
+
+    border:
+        1px solid #263340;
+
+    border-radius: 12px;
+
+    padding: 22px;
+
+    margin-bottom: 25px;
+}
+
+.section h2 {
+
+    margin-bottom: 20px;
+}
+
+.machine-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 14px;
+}
+
+.machine {
+
+    background: #17212b;
+
+    border:
+        1px solid #2b3946;
+
+    border-radius: 10px;
+
+    padding: 16px;
+
+    cursor: pointer;
+}
+
+.machine:hover {
+
+    border-color: #35d07f;
+}
+
+.machine-header {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    margin-bottom: 15px;
+}
+
+.badge {
+
+    padding: 4px 8px;
+
+    border-radius: 12px;
+
+    font-size: 11px;
+}
+
+.healthy {
+
+    background: #123324;
+
+    color: #4ae391;
+}
+
+.warning {
+
+    background: #3a2e0c;
+
+    color: #ffd35a;
+}
+
+.critical {
+
+    background: #3b1717;
+
+    color: #ff7070;
+}
+
+.sensor {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    color: #9ca8b4;
+
+    margin: 7px 0;
+
+    font-size: 13px;
+}
+
+.sensor strong {
+
+    color: white;
+}
+
+button {
+
+    background: #35d07f;
+
+    color: #06100a;
+
+    border: none;
+
+    padding: 11px 18px;
+
+    border-radius: 7px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+button:hover {
+
+    opacity: 0.9;
+}
+
+select {
+
+    background: #17212b;
+
+    color: white;
+
+    border:
+        1px solid #354554;
+
+    padding: 10px;
+
+    border-radius: 7px;
+}
+
+.analysis-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+
+    margin-top: 20px;
+}
+
+.analysis-box {
+
+    background: #17212b;
+
+    padding: 18px;
+
+    border-radius: 9px;
+}
+
+.analysis-box small {
+
+    color: #8d9aa7;
+}
+
+.analysis-box strong {
+
+    display: block;
+
+    font-size: 24px;
+
+    margin-top: 8px;
+}
+
+.recommendation {
+
+    margin-top: 20px;
+
+    padding: 18px;
+
+    background: #16271f;
+
+    border-left:
+        4px solid #35d07f;
+
+    border-radius: 7px;
+}
+
+.factor {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    padding: 12px 0;
+
+    border-bottom:
+        1px solid #273541;
+}
+
+.hidden {
+
+    display: none;
+}
+
+.chart-container {
+
+    height: 320px;
+}
+
+.alert-item {
+
+    background: #17212b;
+
+    border:
+        1px solid #2b3946;
+
+    border-radius: 9px;
+
+    padding: 17px;
+
+    margin-bottom: 10px;
+}
+
+.history-item {
+
+    background: #17212b;
+
+    border:
+        1px solid #2b3946;
+
+    border-radius: 9px;
+
+    padding: 17px;
+
+    margin-bottom: 10px;
+}
+
+.empty {
+
+    color: #84919d;
+
+    padding: 20px 0;
+}
+
+@media(max-width: 1000px) {
+
+    .cards,
+    .machine-grid,
+    .analysis-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+        Machine<span>Guard</span> AI
+    </div>
+
+    <div class="nav-item active"
+         onclick="showSection('dashboard', this)">
+        Dashboard
+    </div>
+
+    <div class="nav-item"
+         onclick="showSection('machines', this)">
+        Machines
+    </div>
+
+    <div class="nav-item"
+         onclick="showSection('alerts', this)">
+        Alerts
+    </div>
+
+    <div class="nav-item"
+         onclick="showSection('history', this)">
+        History
+    </div>
+
+</aside>
+
+
+<!-- MAIN -->
+
+<main class="main">
+
+
+<!-- ========================================================
+     DASHBOARD
+======================================================== -->
+
+<section id="dashboard">
+
+    <div class="header">
+
+        <div>
+
+            <h1>
+                Machine Dashboard
+            </h1>
+
+            <p class="subtitle">
+                Predictive machine condition monitoring
+            </p>
+
+        </div>
+
+        <div class="status">
+            ● SYSTEM ONLINE
+        </div>
+
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="card-title">
+                Total Machines
+            </div>
+
+            <div class="card-value"
+                 id="totalMachines">
+                -
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-title">
+                Records Analyzed
+            </div>
+
+            <div class="card-value"
+                 id="totalRecords">
+                -
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-title">
+                Anomaly Records
+            </div>
+
+            <div class="card-value"
+                 id="anomalies">
+                -
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-title">
+                Maintenance Records
+            </div>
+
+            <div class="card-value"
+                 id="maintenance">
+                -
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="section">
+
+        <h2>
+            Machine Overview
+        </h2>
+
+        <div id="machineGrid"
+             class="machine-grid">
+
+            Loading machines...
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================
+     MACHINES
+======================================================== -->
+
+<section id="machines"
+         class="hidden">
+
+    <div class="header">
+
+        <div>
+
+            <h1>
+                Machine Analysis
+            </h1>
+
+            <p class="subtitle">
+                Select a machine and run the local ML model
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="section">
+
+        <div style="
+            display:flex;
+            gap:10px;
+            flex-wrap:wrap;
+        ">
+
+            <select id="machineSelect">
+            </select>
+
+            <button onclick="runAnalysis()">
+                Run AI Analysis
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div id="analysisResult"
+         class="section hidden">
+
+        <h2>
+            AI Condition Analysis
+        </h2>
+
+
+        <div class="analysis-grid">
+
+
+            <div class="analysis-box">
+
+                <small>
+                    Condition
+                </small>
+
+                <strong id="condition">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="analysis-box">
+
+                <small>
+                    Risk Score
+                </small>
+
+                <strong id="risk">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="analysis-box">
+
+                <small>
+                    Anomaly Probability
+                </small>
+
+                <strong id="probability">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="analysis-box">
+
+                <small>
+                    Machine
+                </small>
+
+                <strong id="machineNumber">
+                    -
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="recommendation">
+
+            <strong>
+                Maintenance Recommendation
+            </strong>
+
+            <p id="recommendation"
+               style="
+               margin-top:10px;
+               color:#b8c3cc;
+               ">
+            </p>
+
+        </div>
+
+
+        <div style="margin-top:25px;">
+
+            <h3>
+                Key Factors
+            </h3>
+
+            <div id="factors"
+                 style="margin-top:10px;">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="section">
+
+        <h2>
+            Sensor Trends
+        </h2>
+
+        <div class="chart-container">
+
+            <canvas id="sensorChart"></canvas>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================
+     ALERTS
+======================================================== -->
+
+<section id="alerts"
+         class="hidden">
+
+    <div class="header">
+
+        <div>
+
+            <h1>
+                Alerts
+            </h1>
+
+            <p class="subtitle">
+                Machine conditions requiring attention
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="section">
+
+        <div id="alertList"
+             class="empty">
+
+            No alerts yet.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================
+     HISTORY
+======================================================== -->
+
+<section id="history"
+         class="hidden">
+
+    <div class="header">
+
+        <div>
+
+            <h1>
+                Analysis History
+            </h1>
+
+            <p class="subtitle">
+                Recent MachineGuard AI analyses
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="section">
+
+        <div id="historyList"
+             class="empty">
+
+            No analysis performed yet.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+</div>
+
+
+<script>
+
+let sensorChart = null;
+
+
+/* ============================================================
+   API
+============================================================ */
+
+async function api(
+    url,
+    options = {}
+) {
+
+    const response =
+        await fetch(
+            url,
+            options
+        );
+
+    if (!response.ok) {
+
+        throw new Error(
+            await response.text()
+        );
+    }
+
+    return response.json();
+}
+
+
+/* ============================================================
+   NAVIGATION
+============================================================ */
+
+function showSection(
+    section,
+    element
+) {
+
+    document
+        .querySelectorAll(
+            "main > section"
+        )
+        .forEach(
+            s =>
+            s.classList.add(
+                "hidden"
+            )
+        );
+
+
+    document
+        .getElementById(section)
+        .classList.remove(
+            "hidden"
+        );
+
+
+    document
+        .querySelectorAll(
+            ".nav-item"
+        )
+        .forEach(
+            n =>
+            n.classList.remove(
+                "active"
+            )
+        );
+
+
+    element.classList.add(
+        "active"
+    );
+
+
+    if (section === "alerts") {
+
+        loadAlerts();
+
+    }
+
+
+    if (section === "history") {
+
+        loadHistory();
+
+    }
+
+}
+
+
+/* ============================================================
+   DASHBOARD
+============================================================ */
+
+async function loadDashboard() {
+
+    const data =
+        await api(
+            "/api/dashboard"
+        );
+
+
+    document
+        .getElementById(
+            "totalMachines"
+        )
+        .textContent =
+        data.total_machines;
+
+
+    document
+        .getElementById(
+            "totalRecords"
+        )
+        .textContent =
+        data.total_records
+        .toLocaleString();
+
+
+    document
+        .getElementById(
+            "anomalies"
+        )
+        .textContent =
+        data.anomalies
+        .toLocaleString();
+
+
+    document
+        .getElementById(
+            "maintenance"
+        )
+        .textContent =
+        data.maintenance_required
+        .toLocaleString();
+
+}
+
+
+/* ============================================================
+   MACHINES
+============================================================ */
+
+async function loadMachines() {
+
+    const machines =
+        await api(
+            "/api/machines"
+        );
+
+
+    const grid =
+        document.getElementById(
+            "machineGrid"
+        );
+
+
+    const select =
+        document.getElementById(
+            "machineSelect"
+        );
+
+
+    grid.innerHTML = "";
+
+    select.innerHTML = "";
+
+
+    machines.forEach(
+        machine => {
+
+
+        const status =
+            machine.anomaly
+                ? "warning"
+                : "healthy";
+
+
+        const statusText =
+            machine.anomaly
+                ? "ANOMALY"
+                : "HEALTHY";
+
+
+        const card =
+            document.createElement(
+                "div"
+            );
+
+
+        card.className =
+            "machine";
+
+
+        card.innerHTML = `
+
+            <div class="machine-header">
+
+                <strong>
+                    Machine ${machine.machine_id}
+                </strong>
+
+                <span class="badge ${status}">
+                    ${statusText}
+                </span>
+
+            </div>
+
+            <div class="sensor">
+                <span>Temperature</span>
+                <strong>
+                    ${machine.temperature}°
+                </strong>
+            </div>
+
+            <div class="sensor">
+                <span>Vibration</span>
+                <strong>
+                    ${machine.vibration}
+                </strong>
+            </div>
+
+            <div class="sensor">
+                <span>Pressure</span>
+                <strong>
+                    ${machine.pressure}
+                </strong>
+            </div>
+
+            <div class="sensor">
+                <span>Energy</span>
+                <strong>
+                    ${machine.energy_consumption}
+                </strong>
+            </div>
+        `;
+
+
+        card.onclick = () => {
+
+            select.value =
+                machine.machine_id;
+
+            showSection(
+                "machines",
+                document.querySelectorAll(
+                    ".nav-item"
+                )[1]
+            );
+
+        };
+
+
+        grid.appendChild(
+            card
+        );
+
+
+        const option =
+            document.createElement(
+                "option"
+            );
+
+
+        option.value =
+            machine.machine_id;
+
+
+        option.textContent =
+            `Machine ${machine.machine_id}`;
+
+
+        select.appendChild(
+            option
+        );
+
+    });
+
+}
+
+
+/* ============================================================
+   ANALYSIS
+============================================================ */
+
+async function runAnalysis() {
+
+    const machineId =
+        parseInt(
+            document
+                .getElementById(
+                    "machineSelect"
+                )
+                .value
+        );
+
+
+    const result =
+        await api(
+            "/api/analyze",
+            {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type":
+                        "application/json"
+                },
+
+                body:
+                    JSON.stringify({
+                        machine_id:
+                            machineId
+                    })
+            }
+        );
+
+
+    document
+        .getElementById(
+            "analysisResult"
+        )
+        .classList.remove(
+            "hidden"
+        );
+
+
+    document
+        .getElementById(
+            "condition"
+        )
+        .textContent =
+        result.condition;
+
+
+    document
+        .getElementById(
+            "risk"
+        )
+        .textContent =
+        result.risk_score + "%";
+
+
+    document
+        .getElementById(
+            "probability"
+        )
+        .textContent =
+        (
+            result.anomaly_probability *
+            100
+        ).toFixed(1) + "%";
+
+
+    document
+        .getElementById(
+            "machineNumber"
+        )
+        .textContent =
+        "M-" + result.machine_id;
+
+
+    document
+        .getElementById(
+            "recommendation"
+        )
+        .textContent =
+        result.recommendation;
+
+
+    const factors =
+        document.getElementById(
+            "factors"
+        );
+
+
+    factors.innerHTML = "";
+
+
+    result.key_factors.forEach(
+        factor => {
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+
+            div.className =
+                "factor";
+
+
+            div.innerHTML = `
+
+                <span>
+                    ${factor.factor}
+                </span>
+
+                <strong>
+                    ${factor.value}
+                </strong>
+
+            `;
+
+
+            factors.appendChild(
+                div
+            );
+
+        }
+    );
+
+
+    await loadSensorChart(
+        machineId
+    );
+
+}
+
+
+/* ============================================================
+   SENSOR CHART
+============================================================ */
+
+async function loadSensorChart(
+    machineId
+) {
+
+    const data =
+        await api(
+            `/api/machines/${machineId}/sensor-data?limit=100`
+        );
+
+
+    const labels =
+        data.map(
+            item =>
+            new Date(
+                item.timestamp
+            ).toLocaleTimeString()
+        );
+
+
+    const temperatures =
+        data.map(
+            item =>
+            item.temperature
+        );
+
+
+    const vibrations =
+        data.map(
+            item =>
+            item.vibration
+        );
+
+
+    if (sensorChart) {
+
+        sensorChart.destroy();
+
+    }
+
+
+    sensorChart =
+        new Chart(
+            document.getElementById(
+                "sensorChart"
+            ),
+            {
+
+                type: "line",
+
+                data: {
+
+                    labels,
+
+                    datasets: [
+
+                        {
+                            label:
+                                "Temperature",
+
+                            data:
+                                temperatures,
+
+                            tension:
+                                0.3
+                        },
+
+                        {
+                            label:
+                                "Vibration",
+
+                            data:
+                                vibrations,
+
+                            tension:
+                                0.3
+                        }
+
+                    ]
+                },
+
+                options: {
+
+                    responsive: true,
+
+                    maintainAspectRatio:
+                        false,
+
+                    plugins: {
+
+                        legend: {
+
+                            labels: {
+                                color:
+                                    "#cbd5df"
+                            }
+                        }
+
+                    },
+
+                    scales: {
+
+                        x: {
+
+                            ticks: {
+                                color:
+                                    "#8795a3"
+                            }
+
+                        },
+
+                        y: {
+
+                            ticks: {
+                                color:
+                                    "#8795a3"
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+        );
+
+}
+
+
+/* ============================================================
+   ALERTS
+============================================================ */
+
+async function loadAlerts() {
+
+    const alerts =
+        await api(
+            "/api/alerts"
+        );
+
+
+    const container =
+        document.getElementById(
+            "alertList"
+        );
+
+
+    if (!alerts.length) {
+
+        container.innerHTML =
+            "No active alerts.";
+
+        return;
+
+    }
+
+
+    container.className = "";
+
+
+    container.innerHTML =
+        alerts.map(
+            alert => `
+
+            <div class="alert-item">
+
+                <strong>
+                    Machine ${alert.machine_id}
+                </strong>
+
+                <p style="margin-top:8px;">
+
+                    ${alert.condition}
+
+                    —
+                    Risk ${alert.risk_score}%
+
+                </p>
+
+                <p style="
+                    color:#8d9aa7;
+                    margin-top:7px;
+                ">
+
+                    ${alert.message}
+
+                </p>
+
+            </div>
+
+        `
+        ).join("");
+
+}
+
+
+/* ============================================================
+   HISTORY
+============================================================ */
+
+async function loadHistory() {
+
+    const history =
+        await api(
+            "/api/history"
+        );
+
+
+    const container =
+        document.getElementById(
+            "historyList"
+        );
+
+
+    if (!history.length) {
+
+        container.innerHTML =
+            "No analysis performed yet.";
+
+        return;
+
+    }
+
+
+    container.className = "";
+
+
+    container.innerHTML =
+        history.map(
+            item => `
+
+            <div class="history-item">
+
+                <strong>
+                    Machine ${item.machine_id}
+                </strong>
+
+                <p style="margin-top:8px;">
+
+                    Condition:
+                    ${item.condition}
+
+                    &nbsp; | &nbsp;
+
+                    Risk:
+                    ${item.risk_score}%
+
+                </p>
+
+                <p style="
+                    color:#8d9aa7;
+                    margin-top:6px;
+                ">
+
+                    ${item.timestamp}
+
+                </p>
+
+            </div>
+
+        `
+        ).join("");
+
+}
+
+
+/* ============================================================
+   INITIALIZATION
+============================================================ */
+
+async function init() {
+
+    try {
+
+        await api(
+            "/api/health"
+        );
+
+        await loadDashboard();
+
+        await loadMachines();
+
+    }
+
+    catch (error) {
+
+        console.error(
+            error
+        );
+
+        document.body.innerHTML += `
+
+            <div style="
+                position:fixed;
+                bottom:20px;
+                right:20px;
+                background:#3b1717;
+                color:#ffaaaa;
+                padding:15px;
+                border-radius:8px;
+            ">
+
+                MachineGuard backend
+                connection failed.
+
+            </div>
+        `;
+
+    }
+
+}
+
+
+init();
+
+</script>
+
+</body>
+
+</html>
