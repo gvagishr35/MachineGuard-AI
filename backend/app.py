@@ -4,6 +4,7 @@ import pandas as pd
 
 from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 
@@ -36,6 +37,14 @@ app = FastAPI(
     version="1.0.0"
 )
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 # ============================================================
 # LOAD DATASET
@@ -53,12 +62,14 @@ df["timestamp"] = pd.to_datetime(
     df["timestamp"]
 )
 
+
 # Keep chronological order
 df = (
     df
     .sort_values("timestamp")
     .reset_index(drop=True)
 )
+
 
 # Time features used by ML model
 df["hour"] = df["timestamp"].dt.hour
