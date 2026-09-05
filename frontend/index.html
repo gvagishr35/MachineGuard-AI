@@ -229,6 +229,22 @@ body {
     margin-bottom: 15px;
 }
 
+.health-score { margin-top: 14px; padding-top: 12px; border-top: 1px solid #273541; }
+.health-score-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 7px; }
+.health-score-label { color: #8d9aa7; font-size: 12px; }
+.health-score-value { font-size: 15px; font-weight: bold; }
+.health-bar { height: 7px; background: #263340; border-radius: 10px; overflow: hidden; }
+.health-bar-fill { height: 100%; border-radius: 10px; transition: width 0.3s ease; }
+.health-healthy { background: #35d07f; }
+.health-watch { background: #ffd35a; }
+.health-warning { background: #ff9f43; }
+.health-critical { background: #ff7070; }
+.analysis-health { display: flex; align-items: center; gap: 18px; margin-top: 20px; padding: 18px; background: #17212b; border-radius: 9px; }
+.health-circle { width: 86px; height: 86px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 6px solid #35d07f; background: #111923; }
+.health-circle span { font-size: 22px; font-weight: bold; }
+.analysis-health-info small { color: #8d9aa7; }
+.analysis-health-info strong { display: block; margin-top: 6px; font-size: 20px; }
+
 .badge {
 
     padding: 4px 8px;
@@ -432,6 +448,432 @@ select {
     }
 }
 
+
+.sensor-status-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.sensor-status-card {
+    background: #17212b;
+    border: 1px solid #2b3946;
+    border-radius: 10px;
+    padding: 16px;
+}
+
+.sensor-status-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.sensor-status-name {
+    color: #8d9aa7;
+    font-size: 12px;
+}
+
+.sensor-status-value {
+    display: block;
+    font-size: 22px;
+    margin-top: 8px;
+    font-weight: bold;
+}
+
+.sensor-status-badge {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.sensor-normal {
+    background: #123324;
+    color: #4ae391;
+}
+
+.sensor-warning {
+    background: #3a2e0c;
+    color: #ffd35a;
+}
+
+.sensor-critical {
+    background: #3b1717;
+    color: #ff7070;
+}
+
+@media(max-width: 1000px) {
+    .sensor-status-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+.ai-explanation {
+    margin-top: 25px;
+    padding: 20px;
+    background: #17212b;
+    border: 1px solid #2b3946;
+    border-radius: 9px;
+}
+
+.ai-explanation-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.ai-explanation-title span {
+    font-size: 20px;
+}
+
+.ai-explanation p {
+    color: #b8c3cc;
+    line-height: 1.6;
+}
+
+.explanation-reason {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 12px 0;
+    border-bottom: 1px solid #273541;
+}
+
+.explanation-reason:last-child {
+    border-bottom: none;
+}
+
+.explanation-reason span {
+    color: #9ca8b4;
+}
+
+.explanation-reason strong {
+    color: white;
+    text-align: right;
+}
+
+
+.maintenance-plan {
+    margin-top: 25px;
+    padding: 20px;
+    background: #17212b;
+    border: 1px solid #2b3946;
+    border-radius: 9px;
+}
+
+.maintenance-plan-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.maintenance-plan-title span {
+    font-size: 20px;
+}
+
+.plan-step {
+    display: flex;
+    gap: 14px;
+    padding: 13px 0;
+    border-bottom: 1px solid #273541;
+}
+
+.plan-step:last-child {
+    border-bottom: none;
+}
+
+.plan-number {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #35d07f;
+    color: #06100a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.plan-step strong {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.plan-step p {
+    color: #9ca8b4;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+.factory-overview {
+    margin-top: 25px;
+    padding: 20px;
+    background: #17212b;
+    border: 1px solid #2b3946;
+    border-radius: 9px;
+}
+
+.factory-overview-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.factory-overview-title span {
+    font-size: 20px;
+}
+
+.factory-overview-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+}
+
+.factory-stat {
+    background: #111a22;
+    border: 1px solid #293744;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.factory-stat-name {
+    color: #8d9aa7;
+    font-size: 12px;
+}
+
+.factory-stat-value {
+    display: block;
+    margin-top: 7px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.factory-summary {
+    margin-top: 15px;
+    padding: 14px;
+    border-radius: 8px;
+    background: #111a22;
+    color: #b8c3cc;
+    line-height: 1.5;
+}
+
+@media(max-width: 1000px) {
+    .factory-overview-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media(max-width: 650px) {
+    .factory-overview-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+.risk-distribution {
+    margin-top: 25px;
+    padding: 20px;
+    background: #17212b;
+    border: 1px solid #2b3946;
+    border-radius: 9px;
+}
+
+.risk-distribution-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.risk-distribution-title span {
+    font-size: 20px;
+}
+
+.risk-bars {
+    display: grid;
+    gap: 14px;
+}
+
+.risk-row {
+    display: grid;
+    grid-template-columns: 90px 1fr 45px;
+    align-items: center;
+    gap: 12px;
+}
+
+.risk-label {
+    color: #b8c3cc;
+    font-size: 13px;
+}
+
+.risk-track {
+    height: 12px;
+    background: #0e151c;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.risk-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 10px;
+    transition: width .5s ease;
+}
+
+.risk-healthy { background: #35d07f; }
+.risk-watch { background: #ffd35a; }
+.risk-warning { background: #ff9f43; }
+.risk-critical { background: #ff5f6d; }
+
+.risk-count {
+    text-align: right;
+    font-weight: bold;
+    color: white;
+}
+
+
+.machine-detail {
+    margin-top: 25px;
+    padding: 20px;
+    background: #17212b;
+    border: 1px solid #2b3946;
+    border-radius: 9px;
+}
+
+.machine-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+
+.machine-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.machine-detail-item {
+    background: #111a22;
+    border: 1px solid #293744;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.machine-detail-label {
+    color: #8d9aa7;
+    font-size: 11px;
+    display: block;
+}
+
+.machine-detail-value {
+    display: block;
+    margin-top: 7px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.machine-detail-status {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 9px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.machine-detail-healthy {
+    background: #123324;
+    color: #4ae391;
+}
+
+.machine-detail-watch {
+    background: #3a2e0c;
+    color: #ffd35a;
+}
+
+.machine-detail-warning {
+    background: #3b2912;
+    color: #ffad5a;
+}
+
+.machine-detail-critical {
+    background: #3b1717;
+    color: #ff7070;
+}
+
+@media(max-width: 1000px) {
+    .machine-detail-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+.advanced-details {
+    margin-top: 25px;
+    padding: 20px;
+    background: #17212b;
+    border: 1px solid #2b3946;
+    border-radius: 9px;
+}
+
+.advanced-details-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.advanced-details-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.advanced-detail-item {
+    background: #111a22;
+    border: 1px solid #293744;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.advanced-detail-label {
+    color: #8d9aa7;
+    font-size: 11px;
+    display: block;
+}
+
+.advanced-detail-value {
+    display: block;
+    margin-top: 7px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+@media(max-width: 1000px) {
+    .advanced-details-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 650px) {
+    .advanced-details-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 </style>
 
 </head>
@@ -566,6 +1008,95 @@ select {
     </div>
 
 
+    <div class="factory-overview">
+
+        <div class="factory-overview-title">
+            <span>🏭</span>
+            <h2>Factory Overview</h2>
+        </div>
+
+        <div class="factory-overview-grid">
+
+            <div class="factory-stat">
+                <span class="factory-stat-name">Total Machines</span>
+                <strong class="factory-stat-value" id="factoryTotal">-</strong>
+            </div>
+
+            <div class="factory-stat">
+                <span class="factory-stat-name">Healthy</span>
+                <strong class="factory-stat-value" id="factoryHealthy">-</strong>
+            </div>
+
+            <div class="factory-stat">
+                <span class="factory-stat-name">Watch</span>
+                <strong class="factory-stat-value" id="factoryWatch">-</strong>
+            </div>
+
+            <div class="factory-stat">
+                <span class="factory-stat-name">Warning</span>
+                <strong class="factory-stat-value" id="factoryWarning">-</strong>
+            </div>
+
+            <div class="factory-stat">
+                <span class="factory-stat-name">Critical</span>
+                <strong class="factory-stat-value" id="factoryCritical">-</strong>
+            </div>
+
+        </div>
+
+        <div class="factory-summary" id="factorySummary">
+            Loading factory condition...
+        </div>
+
+    </div>
+
+
+    <div class="risk-distribution">
+
+        <div class="risk-distribution-title">
+            <span>📊</span>
+            <h2>Dashboard Risk Distribution</h2>
+        </div>
+
+        <div class="risk-bars">
+
+            <div class="risk-row">
+                <span class="risk-label">Healthy</span>
+                <div class="risk-track">
+                    <div id="riskHealthyBar" class="risk-fill risk-healthy"></div>
+                </div>
+                <span id="riskHealthyCount" class="risk-count">0</span>
+            </div>
+
+            <div class="risk-row">
+                <span class="risk-label">Watch</span>
+                <div class="risk-track">
+                    <div id="riskWatchBar" class="risk-fill risk-watch"></div>
+                </div>
+                <span id="riskWatchCount" class="risk-count">0</span>
+            </div>
+
+            <div class="risk-row">
+                <span class="risk-label">Warning</span>
+                <div class="risk-track">
+                    <div id="riskWarningBar" class="risk-fill risk-warning"></div>
+                </div>
+                <span id="riskWarningCount" class="risk-count">0</span>
+            </div>
+
+            <div class="risk-row">
+                <span class="risk-label">Critical</span>
+                <div class="risk-track">
+                    <div id="riskCriticalBar" class="risk-fill risk-critical"></div>
+                </div>
+                <span id="riskCriticalCount" class="risk-count">0</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
     <div class="section">
 
         <h2>
@@ -628,6 +1159,112 @@ select {
     </div>
 
 
+    <div id="machineDetail"
+         class="machine-detail hidden">
+
+        <div class="machine-detail-header">
+            <div>
+                <h2>Machine Detail</h2>
+                <p class="subtitle">Latest operating condition</p>
+            </div>
+            <span id="machineDetailStatus"
+                  class="machine-detail-status machine-detail-healthy">
+                HEALTHY
+            </span>
+        </div>
+
+        <div class="machine-detail-grid">
+
+            <div class="machine-detail-item">
+                <span class="machine-detail-label">Machine ID</span>
+                <strong id="detailMachineId" class="machine-detail-value">-</strong>
+            </div>
+
+            <div class="machine-detail-item">
+                <span class="machine-detail-label">Temperature</span>
+                <strong id="detailTemperature" class="machine-detail-value">-</strong>
+            </div>
+
+            <div class="machine-detail-item">
+                <span class="machine-detail-label">Vibration</span>
+                <strong id="detailVibration" class="machine-detail-value">-</strong>
+            </div>
+
+            <div class="machine-detail-item">
+                <span class="machine-detail-label">Humidity</span>
+                <strong id="detailHumidity" class="machine-detail-value">-</strong>
+            </div>
+
+            <div class="machine-detail-item">
+                <span class="machine-detail-label">Pressure</span>
+                <strong id="detailPressure" class="machine-detail-value">-</strong>
+            </div>
+
+            <div class="machine-detail-item">
+                <span class="machine-detail-label">Energy Consumption</span>
+                <strong id="detailEnergy" class="machine-detail-value">-</strong>
+            </div>
+
+            <div class="machine-detail-item">
+                <span class="machine-detail-label">Machine Status</span>
+                <strong id="detailStatus" class="machine-detail-value">-</strong>
+            </div>
+
+            <div class="machine-detail-item">
+                <span class="machine-detail-label">Maintenance Required</span>
+                <strong id="detailMaintenance" class="machine-detail-value">-</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div id="advancedDetails"
+         class="advanced-details hidden">
+
+        <div class="advanced-details-title">
+            <span>🔎</span>
+            <h2>Advanced Machine Details</h2>
+        </div>
+
+        <div class="advanced-details-grid">
+
+            <div class="advanced-detail-item">
+                <span class="advanced-detail-label">Timestamp</span>
+                <strong id="advancedTimestamp" class="advanced-detail-value">-</strong>
+            </div>
+
+            <div class="advanced-detail-item">
+                <span class="advanced-detail-label">Anomaly Flag</span>
+                <strong id="advancedAnomaly" class="advanced-detail-value">-</strong>
+            </div>
+
+            <div class="advanced-detail-item">
+                <span class="advanced-detail-label">Failure Type</span>
+                <strong id="advancedFailure" class="advanced-detail-value">-</strong>
+            </div>
+
+            <div class="advanced-detail-item">
+                <span class="advanced-detail-label">Predicted Remaining Life</span>
+                <strong id="advancedLife" class="advanced-detail-value">-</strong>
+            </div>
+
+            <div class="advanced-detail-item">
+                <span class="advanced-detail-label">Downtime Risk</span>
+                <strong id="advancedDowntime" class="advanced-detail-value">-</strong>
+            </div>
+
+            <div class="advanced-detail-item">
+                <span class="advanced-detail-label">Maintenance Required</span>
+                <strong id="advancedMaintenance" class="advanced-detail-value">-</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
     <div id="analysisResult"
          class="section hidden">
 
@@ -635,6 +1272,17 @@ select {
             AI Condition Analysis
         </h2>
 
+
+        <div class="analysis-health">
+            <div id="healthCircle" class="health-circle">
+                <span id="healthScore">-</span>
+            </div>
+            <div class="analysis-health-info">
+                <small>Machine Health</small>
+                <strong id="healthStatus">-</strong>
+                <div style="margin-top:6px;color:#8d9aa7;font-size:13px;">Overall condition score</div>
+            </div>
+        </div>
 
         <div class="analysis-grid">
 
@@ -693,6 +1341,47 @@ select {
         </div>
 
 
+
+        <div style="margin-top:25px;">
+            <h3>Sensor Status</h3>
+
+            <div class="sensor-status-grid">
+
+                <div class="sensor-status-card">
+                    <div class="sensor-status-top">
+                        <span class="sensor-status-name">Temperature</span>
+                        <span id="temperatureStatus" class="sensor-status-badge sensor-normal">NORMAL</span>
+                    </div>
+                    <strong id="temperatureValue" class="sensor-status-value">-</strong>
+                </div>
+
+                <div class="sensor-status-card">
+                    <div class="sensor-status-top">
+                        <span class="sensor-status-name">Vibration</span>
+                        <span id="vibrationStatus" class="sensor-status-badge sensor-normal">NORMAL</span>
+                    </div>
+                    <strong id="vibrationValue" class="sensor-status-value">-</strong>
+                </div>
+
+                <div class="sensor-status-card">
+                    <div class="sensor-status-top">
+                        <span class="sensor-status-name">Pressure</span>
+                        <span id="pressureStatus" class="sensor-status-badge sensor-normal">NORMAL</span>
+                    </div>
+                    <strong id="pressureValue" class="sensor-status-value">-</strong>
+                </div>
+
+                <div class="sensor-status-card">
+                    <div class="sensor-status-top">
+                        <span class="sensor-status-name">Energy Consumption</span>
+                        <span id="energyStatus" class="sensor-status-badge sensor-normal">NORMAL</span>
+                    </div>
+                    <strong id="energyValue" class="sensor-status-value">-</strong>
+                </div>
+
+            </div>
+        </div>
+
         <div class="recommendation">
 
             <strong>
@@ -706,6 +1395,31 @@ select {
                ">
             </p>
 
+        </div>
+
+
+
+
+        <div class="maintenance-plan">
+            <div class="maintenance-plan-title">
+                <span>🔧</span>
+                <h3>Maintenance Action Plan</h3>
+            </div>
+            <div id="maintenancePlan"></div>
+        </div>
+
+
+        <div class="ai-explanation">
+            <div class="ai-explanation-title">
+                <span>🧠</span>
+                <h3>Why is this machine at risk?</h3>
+            </div>
+
+            <p id="aiExplanation">
+                Run AI Analysis to see why the model considers this machine risky.
+            </p>
+
+            <div id="explanationReasons" style="margin-top:15px;"></div>
         </div>
 
 
@@ -963,6 +1677,109 @@ async function loadDashboard() {
 }
 
 
+
+
+function updateRiskDistribution(machines) {
+
+    const list = Array.isArray(machines) ? machines : [];
+
+    let healthy = 0;
+    let watch = 0;
+    let warning = 0;
+    let critical = 0;
+
+    list.forEach(machine => {
+
+        const risk = Number(
+            machine.risk_score ??
+            machine.risk ??
+            0
+        );
+
+        if (risk >= 75) {
+            critical++;
+        } else if (risk >= 50) {
+            warning++;
+        } else if (risk >= 25 || machine.anomaly) {
+            watch++;
+        } else {
+            healthy++;
+        }
+
+    });
+
+    const total = list.length || 1;
+
+    const values = {
+        healthy: healthy,
+        watch: watch,
+        warning: warning,
+        critical: critical
+    };
+
+    Object.keys(values).forEach(level => {
+
+        const count = values[level];
+        const percentage = (count / total) * 100;
+
+        document.getElementById(
+            "risk" + level.charAt(0).toUpperCase() + level.slice(1) + "Count"
+        ).textContent = count;
+
+        document.getElementById(
+            "risk" + level.charAt(0).toUpperCase() + level.slice(1) + "Bar"
+        ).style.width = percentage + "%";
+
+    });
+}
+
+
+function updateFactoryOverview(machines) {
+
+    const list = Array.isArray(machines) ? machines : [];
+
+    let healthy = 0;
+    let watch = 0;
+    let warning = 0;
+    let critical = 0;
+
+    list.forEach(machine => {
+
+        if (machine.anomaly) {
+            watch++;
+        } else {
+            healthy++;
+        }
+
+    });
+
+    document.getElementById("factoryTotal").textContent = list.length;
+    document.getElementById("factoryHealthy").textContent = healthy;
+    document.getElementById("factoryWatch").textContent = watch;
+    document.getElementById("factoryWarning").textContent = warning;
+    document.getElementById("factoryCritical").textContent = critical;
+
+    const summary = document.getElementById("factorySummary");
+
+    if (!list.length) {
+        summary.textContent = "No machine data available.";
+        return;
+    }
+
+    if (watch === 0) {
+
+        summary.textContent =
+            "Factory condition is stable. All monitored machines are currently healthy.";
+
+    } else {
+
+        summary.textContent =
+            `${watch} machine${watch !== 1 ? "s are" : " is"} showing anomaly conditions and should be reviewed.`;
+
+    }
+}
+
+
 /* ============================================================
    MACHINES
 ============================================================ */
@@ -973,6 +1790,9 @@ async function loadMachines() {
         await api(
             "/api/machines"
         );
+
+    updateFactoryOverview(machines);
+    updateRiskDistribution(machines);
 
 
     const grid =
@@ -1030,6 +1850,16 @@ async function loadMachines() {
                     ${statusText}
                 </span>
 
+            </div>
+
+            <div class="health-score">
+                <div class="health-score-header">
+                    <span class="health-score-label">Health Score</span>
+                    <span class="health-score-value">${machine.anomaly ? 0 : 100} / 100</span>
+                </div>
+                <div class="health-bar">
+                    <div class="health-bar-fill ${machine.anomaly ? "health-critical" : "health-healthy"}" style="width:${machine.anomaly ? 0 : 100}%"></div>
+                </div>
             </div>
 
             <div class="sensor">
@@ -1109,6 +1939,256 @@ async function loadMachines() {
    ANALYSIS
 ============================================================ */
 
+
+function setSensorStatus(valueId, statusId, value, unit, level) {
+    document.getElementById(valueId).textContent = value + unit;
+
+    const badge = document.getElementById(statusId);
+    badge.className = "sensor-status-badge " + (
+        level === "critical"
+            ? "sensor-critical"
+            : level === "warning"
+                ? "sensor-warning"
+                : "sensor-normal"
+    );
+
+    badge.textContent = level.toUpperCase();
+}
+
+function getSensorLevel(sensor, value) {
+    if (sensor === "temperature") {
+        if (value >= 90) return "critical";
+        if (value >= 75) return "warning";
+        return "normal";
+    }
+
+    if (sensor === "vibration") {
+        if (value >= 0.80) return "critical";
+        if (value >= 0.55) return "warning";
+        return "normal";
+    }
+
+    if (sensor === "pressure") {
+        if (value <= 20 || value >= 120) return "critical";
+        if (value <= 30 || value >= 105) return "warning";
+        return "normal";
+    }
+
+    if (sensor === "energy") {
+        if (value >= 95) return "critical";
+        if (value >= 75) return "warning";
+        return "normal";
+    }
+
+    return "normal";
+}
+
+
+
+
+function buildMaintenancePlan(result) {
+    const container = document.getElementById("maintenancePlan");
+    const risk = Number(result.risk_score || 0);
+    const condition = String(result.condition || "").toLowerCase();
+
+    let steps = [];
+
+    if (risk >= 75 || condition.includes("critical")) {
+        steps = [
+            ["Immediate inspection", "Inspect the machine immediately and avoid prolonged operation until the abnormal condition is checked."],
+            ["Check critical sensors", "Inspect temperature, vibration, pressure and energy readings for abnormal behavior or sensor faults."],
+            ["Identify root cause", "Review the key factors highlighted by the AI analysis and inspect the related mechanical or electrical components."],
+            ["Schedule corrective maintenance", "Repair or replace the affected component and record the maintenance action."],
+            ["Run follow-up check", "Re-analyze the machine after maintenance to confirm that the risk level has decreased."]
+        ];
+    } else if (risk >= 50 || condition.includes("warning")) {
+        steps = [
+            ["Inspect machine", "Perform a focused inspection of the machine and the sensors showing abnormal readings."],
+            ["Monitor sensor trends", "Continue monitoring temperature, vibration, pressure and energy for increasing abnormalities."],
+            ["Plan maintenance", "Schedule preventive maintenance before the condition develops into a critical failure."],
+            ["Verify after maintenance", "Run another AI analysis after maintenance and compare the new risk score."]
+        ];
+    } else if (risk >= 25 || condition.includes("watch")) {
+        steps = [
+            ["Continue monitoring", "Keep the machine under regular condition monitoring."],
+            ["Review early warning signs", "Check the AI key factors and sensor trends for changes."],
+            ["Plan preventive inspection", "Include the machine in the next preventive maintenance inspection."],
+            ["Re-analyze if readings change", "Run AI Analysis again if sensor values become abnormal."]
+        ];
+    } else {
+        steps = [
+            ["Continue normal operation", "The current machine condition does not indicate a significant immediate risk."],
+            ["Keep monitoring", "Continue regular sensor monitoring and routine inspections."],
+            ["Follow preventive schedule", "Perform maintenance according to the normal preventive maintenance schedule."]
+        ];
+    }
+
+    container.innerHTML = steps.map((step, index) => `
+        <div class="plan-step">
+            <div class="plan-number">${index + 1}</div>
+            <div>
+                <strong>${step[0]}</strong>
+                <p>${step[1]}</p>
+            </div>
+        </div>
+    `).join("");
+}
+
+
+function buildAIExplanation(result) {
+    const explanation = document.getElementById("aiExplanation");
+    const reasons = document.getElementById("explanationReasons");
+
+    const condition = String(result.condition || "Unknown");
+    const risk = Number(result.risk_score || 0);
+
+    if (risk >= 75) {
+        explanation.textContent =
+            "The machine is at high risk. The model detected sensor patterns that strongly indicate an abnormal operating condition and recommends immediate attention.";
+    } else if (risk >= 50) {
+        explanation.textContent =
+            "The machine shows warning-level risk. Some sensor readings are outside the preferred operating range and should be monitored closely.";
+    } else if (risk >= 25) {
+        explanation.textContent =
+            "The machine is showing early signs of abnormal behavior. The current readings should be monitored so the condition does not develop into a larger failure.";
+    } else {
+        explanation.textContent =
+            "The machine is currently in a healthy condition. The sensor readings do not indicate a significant abnormal pattern.";
+    }
+
+    reasons.innerHTML = "";
+
+    if (Array.isArray(result.key_factors) && result.key_factors.length) {
+        result.key_factors.forEach(factor => {
+            const div = document.createElement("div");
+            div.className = "explanation-reason";
+
+            const name = document.createElement("span");
+            name.textContent = factor.factor;
+
+            const value = document.createElement("strong");
+            value.textContent = factor.value;
+
+            div.appendChild(name);
+            div.appendChild(value);
+            reasons.appendChild(div);
+        });
+    }
+}
+
+
+
+
+function updateAdvancedDetails(machine) {
+
+    document.getElementById("advancedTimestamp").textContent =
+        machine.timestamp ?? "-";
+
+    document.getElementById("advancedAnomaly").textContent =
+        machine.anomaly_flag != null
+            ? (Number(machine.anomaly_flag) === 1 ? "Anomaly Detected" : "Normal")
+            : (machine.anomaly ? "Anomaly Detected" : "Normal");
+
+    document.getElementById("advancedFailure").textContent =
+        machine.failure_type ?? "Normal";
+
+    const life = machine.predicted_remaining_life;
+    document.getElementById("advancedLife").textContent =
+        life != null ? `${Number(life).toFixed(1)} units` : "-";
+
+    const downtime = machine.downtime_risk;
+    document.getElementById("advancedDowntime").textContent =
+        downtime != null
+            ? (typeof downtime === "number"
+                ? `${(downtime * 100).toFixed(1)}%`
+                : downtime)
+            : "-";
+
+    document.getElementById("advancedMaintenance").textContent =
+        machine.maintenance_required
+            ? "Required"
+            : "Not Required";
+
+    document.getElementById("advancedDetails").classList.remove("hidden");
+}
+
+
+async function loadMachineDetail(machineId) {
+
+    const detail = document.getElementById("machineDetail");
+
+    try {
+
+        const data = await api(
+            `/api/machines/${machineId}`
+        );
+
+        const machine = data.machine || data;
+
+        updateAdvancedDetails(machine);
+
+        document.getElementById("detailMachineId").textContent =
+            machine.machine_id ?? machine.id ?? machineId;
+
+        document.getElementById("detailTemperature").textContent =
+            machine.temperature != null
+                ? `${Number(machine.temperature).toFixed(2)} °C`
+                : "-";
+
+        document.getElementById("detailVibration").textContent =
+            machine.vibration != null
+                ? Number(machine.vibration).toFixed(3)
+                : "-";
+
+        document.getElementById("detailHumidity").textContent =
+            machine.humidity != null
+                ? `${Number(machine.humidity).toFixed(2)} %`
+                : "-";
+
+        document.getElementById("detailPressure").textContent =
+            machine.pressure != null
+                ? Number(machine.pressure).toFixed(2)
+                : "-";
+
+        document.getElementById("detailEnergy").textContent =
+            machine.energy_consumption != null
+                ? Number(machine.energy_consumption).toFixed(2)
+                : "-";
+
+        document.getElementById("detailStatus").textContent =
+            machine.machine_status ?? "-";
+
+        document.getElementById("detailMaintenance").textContent =
+            machine.maintenance_required
+                ? "Required"
+                : "Not Required";
+
+        const status = document.getElementById("machineDetailStatus");
+
+        if (machine.anomaly) {
+            status.textContent = "WATCH";
+            status.className =
+                "machine-detail-status machine-detail-watch";
+        } else {
+            status.textContent = "HEALTHY";
+            status.className =
+                "machine-detail-status machine-detail-healthy";
+        }
+
+        detail.classList.remove("hidden");
+
+        return machine;
+
+    } catch (error) {
+
+        detail.classList.add("hidden");
+        console.error("Machine detail error:", error);
+        return null;
+
+    }
+}
+
+
 async function runAnalysis() {
 
     const machineId =
@@ -1151,6 +2231,29 @@ async function runAnalysis() {
         );
 
 
+    const healthScore =
+        Math.max(0, Math.min(100, Math.round(100 - result.risk_score)));
+
+    document.getElementById("healthScore").textContent = healthScore + " / 100";
+
+    const healthStatus = document.getElementById("healthStatus");
+    const healthCircle = document.getElementById("healthCircle");
+
+    if (healthScore >= 75) {
+        healthStatus.textContent = "Healthy";
+        healthCircle.style.borderColor = "#35d07f";
+    } else if (healthScore >= 50) {
+        healthStatus.textContent = "Watch";
+        healthCircle.style.borderColor = "#ffd35a";
+    } else if (healthScore >= 25) {
+        healthStatus.textContent = "Warning";
+        healthCircle.style.borderColor = "#ff9f43";
+    } else {
+        healthStatus.textContent = "Critical";
+        healthCircle.style.borderColor = "#ff7070";
+    }
+
+
     document
         .getElementById(
             "condition"
@@ -1186,6 +2289,55 @@ async function runAnalysis() {
         "M-" + result.machine_id;
 
 
+    const machineData = await loadMachineDetail(machineId);
+
+    const sensor =
+        machineData ||
+        result.latest_sensor ||
+        result.sensor_data ||
+        result;
+
+    if (sensor.temperature !== undefined && sensor.temperature !== null) {
+        setSensorStatus(
+            "temperatureValue",
+            "temperatureStatus",
+            Number(sensor.temperature).toFixed(1),
+            "°",
+            getSensorLevel("temperature", Number(sensor.temperature))
+        );
+    }
+
+    if (sensor.vibration !== undefined && sensor.vibration !== null) {
+        setSensorStatus(
+            "vibrationValue",
+            "vibrationStatus",
+            Number(sensor.vibration).toFixed(2),
+            "",
+            getSensorLevel("vibration", Number(sensor.vibration))
+        );
+    }
+
+    if (sensor.pressure !== undefined && sensor.pressure !== null) {
+        setSensorStatus(
+            "pressureValue",
+            "pressureStatus",
+            Number(sensor.pressure).toFixed(1),
+            "",
+            getSensorLevel("pressure", Number(sensor.pressure))
+        );
+    }
+
+    if (sensor.energy_consumption !== undefined && sensor.energy_consumption !== null) {
+        setSensorStatus(
+            "energyValue",
+            "energyStatus",
+            Number(sensor.energy_consumption).toFixed(1),
+            "",
+            getSensorLevel("energy", Number(sensor.energy_consumption))
+        );
+    }
+
+
     document
         .getElementById(
             "recommendation"
@@ -1193,6 +2345,9 @@ async function runAnalysis() {
         .textContent =
         result.recommendation;
 
+
+    buildAIExplanation(result);
+    buildMaintenancePlan(result);
 
     const factors =
         document.getElementById(
