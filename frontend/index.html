@@ -506,6 +506,11 @@ select {
     color: #ff7070;
 }
 
+.sensor-watch {
+    background: #3b3517;
+    color: #ffd35a;
+}
+
 @media(max-width: 1000px) {
     .sensor-status-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -874,6 +879,252 @@ select {
     }
 }
 
+
+.dashboard-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 330px;
+    gap: 20px;
+    align-items: start;
+}
+.dashboard-main { min-width: 0; }
+.dashboard-right {
+    display: grid;
+    gap: 15px;
+    position: sticky;
+    top: 20px;
+}
+.live-panel {
+    background: #17212b;
+    border: 1px solid #2b3946;
+    border-radius: 9px;
+    padding: 18px;
+}
+.live-panel-title {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 14px;
+}
+.live-panel-title span { font-size: 18px; }
+.live-panel-title h3 { font-size: 16px; margin: 0; }
+.live-updated { color: #7f8c98; font-size: 11px; margin-top: 4px; }
+.risk-machine {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 0;
+    border-bottom: 1px solid #273541;
+    gap: 10px;
+}
+.risk-machine:last-child { border-bottom: none; }
+.risk-machine-name { font-weight: bold; }
+.risk-machine-value { font-weight: bold; font-size: 12px; }
+.risk-machine-value.high { color: #ff7070; }
+.risk-machine-value.medium { color: #ffd35a; }
+.risk-machine-value.low { color: #4ae391; }
+.live-alert {
+    padding: 10px 0;
+    border-bottom: 1px solid #273541;
+}
+.live-alert:last-child { border-bottom: none; }
+.live-alert strong { display: block; font-size: 12px; }
+.live-alert small { display: block; color: #84919d; margin-top: 4px; }
+.ai-factory-insight { color: #b8c3cc; line-height: 1.55; font-size: 13px; }
+.system-check {
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 0;
+    border-bottom: 1px solid #273541;
+    font-size: 12px;
+}
+.system-check:last-child { border-bottom: none; }
+.system-ok { color: #4ae391; font-weight: bold; }
+@media(max-width: 1150px) {
+    .dashboard-content { grid-template-columns: 1fr; }
+    .dashboard-right {
+        position: static;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media(max-width: 700px) {
+    .dashboard-right { grid-template-columns: 1fr; }
+}
+
+
+.secondary-btn {
+    background: #263544;
+    border: 1px solid #3b4c5d;
+}
+
+.secondary-btn:hover {
+    background: #314456;
+}
+
+.update-machine-btn {
+    background: #35d07f;
+    color: #06100a;
+    border: 2px solid #55e894;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: .2px;
+    cursor: pointer;
+    box-shadow: 0 0 0 2px rgba(53, 208, 127, 0.14);
+    min-height: 44px;
+}
+
+.update-machine-btn:hover {
+    background: #4be58d;
+    transform: translateY(-1px);
+}
+
+.update-machine-btn:active {
+    transform: translateY(0);
+}
+
+.machine-editor {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(3, 8, 13, 0.82);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.machine-editor.hidden {
+    display: none;
+}
+
+.machine-editor-card {
+    width: min(900px, 100%);
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #17212b;
+    border: 1px solid #334454;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 25px 80px rgba(0,0,0,.45);
+}
+
+.machine-editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.machine-editor-close {
+    border: none;
+    background: transparent;
+    color: #9ca8b4;
+    font-size: 26px;
+    cursor: pointer;
+    padding: 0 5px;
+}
+
+.machine-editor-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.editor-field label {
+    display: block;
+    color: #9ca8b4;
+    font-size: 11px;
+    margin-bottom: 6px;
+}
+
+.editor-field input {
+    width: 100%;
+    box-sizing: border-box;
+    background: #0f171f;
+    color: white;
+    border: 1px solid #334454;
+    border-radius: 7px;
+    padding: 11px;
+}
+
+.editor-field input:focus {
+    outline: none;
+    border-color: #35d07f;
+}
+
+.machine-editor-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.machine-editor-note {
+    color: #84919d;
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+}
+
+@media(max-width: 700px) {
+    .machine-editor-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ============================================================
+   MACHINE DATA SIMULATION + EXTRA MODULES
+============================================================ */
+.simulation-card { margin-top: 16px; padding: 14px; background:#17212b; border:1px solid #2b3946; border-radius:10px; }
+.simulation-status { display:flex; justify-content:space-between; gap:10px; align-items:center; margin-bottom:10px; }
+.simulation-dot { color:#43e58d; font-weight:bold; }
+.simulation-meta { color:#8d9aa7; font-size:12px; line-height:1.7; }
+.simulation-button { width:100%; margin-top:10px; }
+.nav-divider { height:1px; background:#263340; margin:18px 8px; }
+.nav-label { color:#667582; font-size:10px; text-transform:uppercase; letter-spacing:1px; padding:0 15px 8px; }
+.page-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+.module-card { background:#111923; border:1px solid #263340; border-radius:12px; padding:22px; margin-bottom:20px; }
+.module-card h2 { margin-bottom:8px; }
+.module-subtitle { color:#84919d; margin-bottom:18px; }
+.form-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+.form-group label { display:block; color:#8d9aa7; font-size:12px; margin-bottom:7px; }
+.form-group input,.form-group select { width:100%; background:#17212b; border:1px solid #2b3946; color:#e8edf2; padding:11px; border-radius:7px; }
+.whatif-values { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:18px; }
+.whatif-field { background:#17212b; border:1px solid #2b3946; border-radius:9px; padding:13px; }
+.whatif-field label { display:flex; justify-content:space-between; color:#b8c3cc; font-size:12px; margin-bottom:8px; }
+.whatif-field input[type=range] { width:100%; }
+.whatif-result { margin-top:18px; padding:18px; background:#17212b; border-radius:10px; border:1px solid #2b3946; }
+.whatif-risk { font-size:36px; font-weight:bold; }
+.metric-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+.metric-mini { background:#17212b; padding:15px; border-radius:9px; border:1px solid #2b3946; }
+.metric-mini span { display:block; color:#8d9aa7; font-size:12px; }
+.metric-mini strong { display:block; font-size:24px; margin-top:7px; }
+.table-wrap { overflow-x:auto; }
+.data-table { width:100%; border-collapse:collapse; }
+.data-table th,.data-table td { padding:12px 10px; border-bottom:1px solid #263340; text-align:left; white-space:nowrap; }
+.data-table th { color:#8d9aa7; font-size:12px; }
+.status-pill { display:inline-block; padding:5px 9px; border-radius:14px; font-size:11px; font-weight:bold; }
+.status-healthy { background:#103423; color:#43e58d; }
+.status-watch { background:#3b3517; color:#ffd35a; }
+.status-warning { background:#3b2917; color:#ffb35c; }
+.status-critical { background:#3b1717; color:#ff8585; }
+.report-actions { display:flex; gap:10px; flex-wrap:wrap; }
+.setting-row { display:flex; justify-content:space-between; align-items:center; gap:15px; padding:16px 0; border-bottom:1px solid #263340; }
+.setting-row:last-child { border-bottom:none; }
+.setting-label strong { display:block; }
+.setting-label span { color:#84919d; font-size:12px; display:block; margin-top:4px; }
+.last-update-box { margin-top:15px; padding:12px 14px; background:#17212b; border:1px solid #2b3946; border-radius:8px; color:#9daab7; font-size:12px; }
+@media(max-width:900px){ .page-grid,.form-grid,.whatif-values { grid-template-columns:1fr; } .metric-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+
+
+.maintenance-required {
+    color: #ff8b8b;
+    font-weight: 700;
+}
+
 </style>
 
 </head>
@@ -912,6 +1163,17 @@ select {
          onclick="showSection('history', this)">
         History
     </div>
+
+    <div class="nav-divider"></div>
+    <div class="nav-label">Tools</div>
+
+    <div class="nav-item" onclick="showSection('simulator', this)">🔮 What-If Simulator</div>
+    <div class="nav-item" onclick="showSection('maintenance', this)">🔧 Maintenance</div>
+    <div class="nav-item" onclick="showSection('analytics', this)">📈 Analytics</div>
+    <div class="nav-item" onclick="showSection('reports', this)">📄 Reports</div>
+
+    <div class="nav-divider"></div>
+    <div class="nav-item" onclick="showSection('settings', this)">⚙ Settings</div>
 
 </aside>
 
@@ -1008,7 +1270,9 @@ select {
     </div>
 
 
-    <div class="factory-overview">
+    <div class="dashboard-content">
+<div class="dashboard-main">
+<div class="factory-overview">
 
         <div class="factory-overview-title">
             <span>🏭</span>
@@ -1112,6 +1376,80 @@ select {
 
     </div>
 
+
+</div>
+
+<aside class="dashboard-right">
+
+    <div class="live-panel">
+        <div class="live-panel-title">
+            <span>🚨</span>
+            <div>
+                <h3>Top Risk Machines</h3>
+                <div class="live-updated" id="riskUpdated">Live</div>
+            </div>
+        </div>
+        <div id="topRiskMachines">Loading...</div>
+    </div>
+
+    <div class="live-panel">
+        <div class="live-panel-title">
+            <span>🔔</span>
+            <h3>Live Alerts</h3>
+        </div>
+        <div id="liveAlerts">Loading...</div>
+    </div>
+
+    <div class="live-panel">
+        <div class="live-panel-title">
+            <span>🤖</span>
+            <h3>AI Factory Insight</h3>
+        </div>
+        <div id="aiFactoryInsight" class="ai-factory-insight">
+            Analyzing factory condition...
+        </div>
+    </div>
+
+    <div class="live-panel">
+        <div class="live-panel-title">
+            <span>🔄</span>
+            <div>
+                <h3>Data Simulation</h3>
+                <div class="live-updated" id="simulationUpdated">Manual update only</div>
+            </div>
+        </div>
+        <div class="simulation-meta">
+            <div><span class="simulation-dot">●</span> Historical data simulation</div>
+            <div id="dashboardRecordInfo">Each click moves machines to the next record.</div>
+        </div>
+        <button class="simulation-button" onclick="updateAllMachines()">🔄 Update All Machines</button>
+    </div>
+
+    <div class="live-panel">
+        <div class="live-panel-title">
+            <span>💓</span>
+            <div>
+                <h3>System Health</h3>
+                <div class="live-updated" id="liveUpdated">Checking...</div>
+            </div>
+        </div>
+        <div class="system-check">
+            <span>Backend API</span>
+            <span id="apiStatus" class="system-ok">ONLINE</span>
+        </div>
+        <div class="system-check">
+            <span>ML Model</span>
+            <span id="modelStatus" class="system-ok">READY</span>
+        </div>
+        <div class="system-check">
+            <span>Monitoring</span>
+            <span id="monitoringStatus" class="system-ok">MANUAL</span>
+        </div>
+    </div>
+
+</aside>
+
+</div>
 </section>
 
 
@@ -1151,7 +1489,11 @@ select {
             </select>
 
             <button onclick="runAnalysis()">
-                Run AI Analysis
+                🤖 Run AI Analysis
+            </button>
+
+            <button class="update-machine-btn" onclick="updateSelectedMachine()">
+                🔄 UPDATE MACHINE DATA
             </button>
 
         </div>
@@ -1171,6 +1513,12 @@ select {
                   class="machine-detail-status machine-detail-healthy">
                 HEALTHY
             </span>
+        </div>
+
+        <div class="last-update-box">
+            <strong>Data Simulation:</strong>
+            Record <span id="detailRecordIndex">-</span> of <span id="detailTotalRecords">-</span>
+            &nbsp; | &nbsp; Last Updated: <span id="detailLastUpdated">Not updated yet</span>
         </div>
 
         <div class="machine-detail-grid">
@@ -1423,17 +1771,6 @@ select {
         </div>
 
 
-        <div style="margin-top:25px;">
-
-            <h3>
-                Key Factors
-            </h3>
-
-            <div id="factors"
-                 style="margin-top:10px;">
-            </div>
-
-        </div>
 
     </div>
 
@@ -1454,6 +1791,89 @@ select {
 
 </section>
 
+
+<!-- ========================================================
+     WHAT-IF SIMULATOR
+======================================================== -->
+<section id="simulator" class="hidden">
+    <div class="header"><div><h1>What-If Simulator</h1><p class="subtitle">Test how sensor changes could affect machine risk.</p></div></div>
+    <div class="module-card">
+        <h2>🔮 Simulate Machine Risk</h2>
+        <p class="module-subtitle">This changes only the simulation values. The dataset is never modified.</p>
+        <div class="form-grid">
+            <div class="form-group"><label>Machine</label><select id="whatIfMachine"></select></div>
+        </div>
+        <div class="whatif-values">
+            <div class="whatif-field"><label>Temperature <span id="whatIfTempValue">-</span></label><input id="whatIfTemp" type="range" min="0" max="120" step="0.1"></div>
+            <div class="whatif-field"><label>Vibration <span id="whatIfVibValue">-</span></label><input id="whatIfVib" type="range" min="0" max="1.5" step="0.01"></div>
+            <div class="whatif-field"><label>Humidity <span id="whatIfHumValue">-</span></label><input id="whatIfHum" type="range" min="0" max="100" step="0.1"></div>
+            <div class="whatif-field"><label>Pressure <span id="whatIfPressureValue">-</span></label><input id="whatIfPressure" type="range" min="0" max="140" step="0.1"></div>
+            <div class="whatif-field"><label>Energy Consumption <span id="whatIfEnergyValue">-</span></label><input id="whatIfEnergy" type="range" min="0" max="140" step="0.1"></div>
+        </div>
+        <button style="margin-top:18px" onclick="runWhatIf()">🧠 Simulate Risk</button>
+        <div id="whatIfResult" class="whatif-result hidden">
+            <div style="color:#8d9aa7;font-size:12px">Simulated Risk</div>
+            <div id="whatIfRisk" class="whatif-risk">-</div>
+            <div id="whatIfCondition" style="font-weight:bold;margin-top:5px">-</div>
+            <p id="whatIfRecommendation" style="color:#b8c3cc;margin-top:10px"></p>
+        </div>
+    </div>
+</section>
+
+<!-- ========================================================
+     MAINTENANCE CENTER
+======================================================== -->
+<section id="maintenance" class="hidden">
+    <div class="header"><div><h1>Maintenance Center</h1><p class="subtitle">Prioritize machines that need attention.</p></div></div>
+    <div class="module-card">
+        <div id="maintenanceSummary" class="metric-grid"></div>
+    </div>
+    <div class="module-card">
+        <h2>Maintenance Priority</h2>
+        <div id="maintenanceTable" class="table-wrap">Loading...</div>
+    </div>
+</section>
+
+<!-- ========================================================
+     ANALYTICS
+======================================================== -->
+<section id="analytics" class="hidden">
+    <div class="header"><div><h1>Analytics</h1><p class="subtitle">Factory sensor and machine-condition analytics.</p></div></div>
+    <div class="module-card"><div id="analyticsMetrics" class="metric-grid"></div></div>
+    <div class="page-grid">
+        <div class="module-card"><h2>Risk Distribution</h2><canvas id="analyticsRiskChart"></canvas></div>
+        <div class="module-card"><h2>Average Sensor Values</h2><canvas id="analyticsSensorChart"></canvas></div>
+    </div>
+</section>
+
+<!-- ========================================================
+     REPORTS
+======================================================== -->
+<section id="reports" class="hidden">
+    <div class="header"><div><h1>Reports</h1><p class="subtitle">Create a shareable factory maintenance report.</p></div></div>
+    <div class="module-card">
+        <h2>📄 MachineGuard AI Report</h2>
+        <p class="module-subtitle">Generate a report from the current simulated machine readings.</p>
+        <div class="report-actions">
+            <button onclick="generateReport()">Generate & Download Report</button>
+            <button class="secondary-btn" onclick="printReport()">Print Report</button>
+        </div>
+        <div id="reportPreview" style="margin-top:20px;color:#b8c3cc">No report generated yet.</div>
+    </div>
+</section>
+
+<!-- ========================================================
+     SETTINGS
+======================================================== -->
+<section id="settings" class="hidden">
+    <div class="header"><div><h1>Settings</h1><p class="subtitle">MachineGuard AI simulation settings.</p></div></div>
+    <div class="module-card">
+        <div class="setting-row"><div class="setting-label"><strong>Simulation Mode</strong><span>Manual updates only. Data changes when you press Update.</span></div><strong>MANUAL</strong></div>
+        <div class="setting-row"><div class="setting-label"><strong>Suggested Update Interval</strong><span>30 seconds is the recommended demo interval, but no automatic update runs.</span></div><strong>30 sec</strong></div>
+        <div class="setting-row"><div class="setting-label"><strong>Dataset Protection</strong><span>The original CSV is read-only during simulation.</span></div><strong style="color:#43e58d">PROTECTED</strong></div>
+        <div class="setting-row"><div class="setting-label"><strong>Reset Simulation</strong><span>Return every machine to its first dataset record and clear session history/alerts.</span></div><button class="secondary-btn" onclick="resetSimulation()">Reset</button></div>
+    </div>
+</section>
 
 <!-- ========================================================
      ALERTS
@@ -1620,9 +2040,19 @@ function showSection(
 
 
     if (section === "history") {
-
         loadHistory();
-
+    }
+    if (section === "simulator") {
+        loadWhatIfMachines();
+    }
+    if (section === "maintenance") {
+        loadMaintenanceCenter();
+    }
+    if (section === "analytics") {
+        loadAnalytics();
+    }
+    if (section === "reports") {
+        loadReportPreview();
     }
 
 }
@@ -1678,6 +2108,143 @@ async function loadDashboard() {
 
 
 
+
+
+function sensorRiskScore(machine) {
+    if (machine && Number.isFinite(Number(machine.risk_score))) {
+        return Number(machine.risk_score);
+    }
+    let score = 0;
+    const temperature = Number(machine.temperature);
+    const vibration = Number(machine.vibration);
+    const pressure = Number(machine.pressure);
+    const energy = Number(machine.energy_consumption);
+    if (temperature >= 90) score += 35; else if (temperature >= 75) score += 20;
+    if (vibration >= 90) score += 35; else if (vibration >= 70) score += 20;
+    if (pressure <= 1.5 || pressure >= 4.5) score += 20; else if (pressure <= 2 || pressure >= 4) score += 10;
+    if (energy >= 4.5) score += 10; else if (energy >= 3.8) score += 5;
+    return Math.min(100, score);
+}
+
+function updateLivePanels(machines) {
+
+    const list = Array.isArray(machines) ? machines : [];
+
+    const ranked = list
+        .map(machine => ({ machine, risk: sensorRiskScore(machine) }))
+        .sort((a, b) => b.risk - a.risk)
+        .slice(0, 5);
+
+    const topRisk = document.getElementById("topRiskMachines");
+
+    topRisk.innerHTML = ranked.length
+        ? ranked.map(item => {
+            let level = "low";
+            let label = "HEALTHY";
+
+            if (item.risk >= 75) {
+                level = "high";
+                label = "CRITICAL";
+            } else if (item.risk >= 50) {
+                level = "high";
+                label = "WARNING";
+            } else if (item.risk >= 25 || item.machine.anomaly) {
+                level = "medium";
+                label = "WATCH";
+            }
+
+            return `
+                <div class="risk-machine">
+                    <span class="risk-machine-name">Machine ${item.machine.machine_id}</span>
+                    <span class="risk-machine-value ${level}">
+                        ${label} · ${Math.round(item.risk)}%
+                    </span>
+                </div>
+            `;
+        }).join("")
+        : `<div class="empty">No machine data available.</div>`;
+
+    const alerts = ranked.filter(
+        item => item.risk >= 25 || item.machine.anomaly
+    ).slice(0, 3);
+
+    const alertBox = document.getElementById("liveAlerts");
+
+    alertBox.innerHTML = alerts.length
+        ? alerts.map(item => {
+            const vibration = Number(item.machine.vibration);
+            const temperature = Number(item.machine.temperature);
+
+            let reason = "Abnormal machine condition detected";
+            if (vibration >= 70) reason = "Vibration level elevated";
+            else if (temperature >= 75) reason = "Temperature level elevated";
+
+            return `
+                <div class="live-alert">
+                    <strong>Machine ${item.machine.machine_id}</strong>
+                    <small>${reason} · Risk ${Math.round(item.risk)}%</small>
+                </div>
+            `;
+        }).join("")
+        : `
+            <div class="live-alert">
+                <strong>✓ No active alerts</strong>
+                <small>All monitored machines are currently stable.</small>
+            </div>
+        `;
+
+    const critical = list.filter(m => sensorRiskScore(m) >= 75).length;
+    const warning = list.filter(m => {
+        const r = sensorRiskScore(m);
+        return r >= 50 && r < 75;
+    }).length;
+    const watch = list.filter(m => {
+        const r = sensorRiskScore(m);
+        return (r >= 25 && r < 50) || (r < 25 && m.anomaly);
+    }).length;
+    const healthy = Math.max(0, list.length - critical - warning - watch);
+
+    const insight = document.getElementById("aiFactoryInsight");
+
+    if (critical > 0) {
+        insight.textContent =
+            `${critical} machine${critical > 1 ? "s are" : " is"} at critical risk. Immediate inspection is recommended.`;
+    } else if (warning > 0) {
+        insight.textContent =
+            `${warning} machine${warning > 1 ? "s are" : " is"} at warning level. Review sensor trends and plan maintenance.`;
+    } else if (watch > 0) {
+        insight.textContent =
+            `${watch} machine${watch > 1 ? "s are" : " is"} showing early warning signs. Continue close monitoring.`;
+    } else {
+        insight.textContent =
+            "Factory condition is stable. All monitored machines are currently in the healthy range.";
+    }
+
+    const now = new Date().toLocaleTimeString();
+    document.getElementById("liveUpdated").textContent = "Last update: " + now;
+    document.getElementById("riskUpdated").textContent = "Updated " + now;
+}
+
+async function refreshLiveDashboard() {
+
+    try {
+        const machines = await api("/api/machines");
+        updateFactoryOverview(machines);
+        updateRiskDistribution(machines);
+        updateLivePanels(machines);
+
+        document.getElementById("apiStatus").textContent = "ONLINE";
+        document.getElementById("modelStatus").textContent = "READY";
+        document.getElementById("monitoringStatus").textContent = "LIVE";
+
+    } catch (error) {
+
+        console.error("Live dashboard update failed:", error);
+        document.getElementById("apiStatus").textContent = "OFFLINE";
+        document.getElementById("monitoringStatus").textContent = "PAUSED";
+
+    }
+}
 
 function updateRiskDistribution(machines) {
 
@@ -1816,16 +2383,9 @@ async function loadMachines() {
         machine => {
 
 
-        const status =
-            machine.anomaly
-                ? "warning"
-                : "healthy";
-
-
-        const statusText =
-            machine.anomaly
-                ? "ANOMALY"
-                : "HEALTHY";
+        const currentCondition = machine.condition || (machine.anomaly ? "Warning" : "Healthy");
+        const status = currentCondition.toLowerCase();
+        const statusText = currentCondition.toUpperCase();
 
 
         const card =
@@ -1855,10 +2415,10 @@ async function loadMachines() {
             <div class="health-score">
                 <div class="health-score-header">
                     <span class="health-score-label">Health Score</span>
-                    <span class="health-score-value">${machine.anomaly ? 0 : 100} / 100</span>
+                    <span class="health-score-value">${Math.round(100 - sensorRiskScore(machine))} / 100</span>
                 </div>
                 <div class="health-bar">
-                    <div class="health-bar-fill ${machine.anomaly ? "health-critical" : "health-healthy"}" style="width:${machine.anomaly ? 0 : 100}%"></div>
+                    <div class="health-bar-fill ${sensorRiskScore(machine) >= 75 ? "health-critical" : sensorRiskScore(machine) >= 50 ? "health-warning" : sensorRiskScore(machine) >= 25 ? "health-watch" : "health-healthy"}" style="width:${Math.max(0, 100 - sensorRiskScore(machine))}%"></div>
                 </div>
             </div>
 
@@ -1949,7 +2509,9 @@ function setSensorStatus(valueId, statusId, value, unit, level) {
             ? "sensor-critical"
             : level === "warning"
                 ? "sensor-warning"
-                : "sensor-normal"
+                : level === "watch"
+                    ? "sensor-watch"
+                    : "sensor-normal"
     );
 
     badge.textContent = level.toUpperCase();
@@ -1963,20 +2525,21 @@ function getSensorLevel(sensor, value) {
     }
 
     if (sensor === "vibration") {
-        if (value >= 0.80) return "critical";
-        if (value >= 0.55) return "warning";
+        if (value >= 90) return "critical";
+        if (value >= 70) return "warning";
+        if (value >= 55) return "watch";
         return "normal";
     }
 
     if (sensor === "pressure") {
-        if (value <= 20 || value >= 120) return "critical";
-        if (value <= 30 || value >= 105) return "warning";
+        if (value <= 1.5 || value >= 4.5) return "critical";
+        if (value <= 2.0 || value >= 4.0) return "warning";
         return "normal";
     }
 
     if (sensor === "energy") {
-        if (value >= 95) return "critical";
-        if (value >= 75) return "warning";
+        if (value >= 4.5) return "critical";
+        if (value >= 3.8) return "warning";
         return "normal";
     }
 
@@ -2109,6 +2672,13 @@ function updateAdvancedDetails(machine) {
             ? "Required"
             : "Not Required";
 
+    const recordIndex = document.getElementById("detailRecordIndex");
+    const totalRecords = document.getElementById("detailTotalRecords");
+    const lastUpdated = document.getElementById("detailLastUpdated");
+    if (recordIndex) recordIndex.textContent = machine.record_index ?? "-";
+    if (totalRecords) totalRecords.textContent = machine.total_machine_records ?? "-";
+    if (lastUpdated) lastUpdated.textContent = machine.last_updated || "Not updated yet";
+
     document.getElementById("advancedDetails").classList.remove("hidden");
 }
 
@@ -2187,6 +2757,7 @@ async function loadMachineDetail(machineId) {
 
     }
 }
+
 
 
 async function runAnalysis() {
@@ -2349,47 +2920,20 @@ async function runAnalysis() {
     buildAIExplanation(result);
     buildMaintenancePlan(result);
 
-    const factors =
-        document.getElementById(
-            "factors"
-        );
+    const factors = document.getElementById("factors");
+    if (factors) {
+        factors.innerHTML = "";
 
-
-    factors.innerHTML = "";
-
-
-    result.key_factors.forEach(
-        factor => {
-
-            const div =
-                document.createElement(
-                    "div"
-                );
-
-
-            div.className =
-                "factor";
-
-
+        (result.key_factors || []).forEach(factor => {
+            const div = document.createElement("div");
+            div.className = "factor";
             div.innerHTML = `
-
-                <span>
-                    ${factor.factor}
-                </span>
-
-                <strong>
-                    ${factor.value}
-                </strong>
-
+                <span>${factor.factor}</span>
+                <strong>${factor.value}</strong>
             `;
-
-
-            factors.appendChild(
-                div
-            );
-
-        }
-    );
+            factors.appendChild(div);
+        });
+    }
 
 
     await loadSensorChart(
@@ -2669,6 +3213,331 @@ async function loadHistory() {
 }
 
 
+
+/* ============================================================
+   DATA SIMULATION
+============================================================ */
+let whatIfMachinesCache = [];
+let analyticsRiskChart = null;
+let analyticsSensorChart = null;
+let latestReportHtml = "";
+
+function formatNow() {
+    return new Date().toLocaleTimeString([], {hour: "2-digit", minute: "2-digit", second: "2-digit"});
+}
+
+async function updateSelectedMachine() {
+    const machineId = parseInt(document.getElementById("machineSelect").value);
+    try {
+        const updated = await api(`/api/machines/${machineId}/update`, {method:"POST"});
+        await loadMachines();
+        await loadMachineDetail(machineId);
+        await runAnalysis();
+        await refreshLiveDashboard();
+        document.getElementById("simulationUpdated").textContent = `Last update: ${formatNow()} · Record ${updated.record_index}`;
+    } catch (error) {
+        console.error(error);
+        document.getElementById("simulationUpdated").textContent = "Update failed — check that the backend is running.";
+    }
+}
+
+async function updateAllMachines() {
+    try {
+        const result = await api("/api/machines/update-all", {method:"POST"});
+        await loadMachines();
+        await refreshLiveDashboard();
+        const selected = parseInt(document.getElementById("machineSelect").value);
+        await loadMachineDetail(selected);
+        await runAnalysis();
+        const now = formatNow();
+        document.getElementById("simulationUpdated").textContent = "Last update: " + now;
+        document.getElementById("dashboardRecordInfo").textContent = `${result.updated_count} machines moved to their next dataset record.`;
+    } catch (error) {
+        console.error(error);
+        document.getElementById("simulationUpdated").textContent = "Update All failed — check that the backend is running.";
+    }
+}
+
+/* ============================================================
+   WHAT-IF SIMULATOR
+============================================================ */
+async function loadWhatIfMachines() {
+    whatIfMachinesCache = await api("/api/machines");
+    const select = document.getElementById("whatIfMachine");
+    if (!select) return;
+    const current = parseInt(document.getElementById("machineSelect").value || 1);
+    select.innerHTML = whatIfMachinesCache.map(m => `<option value="${m.machine_id}">Machine ${m.machine_id}</option>`).join("");
+    select.value = String(current);
+    setWhatIfFromMachine(current);
+    select.onchange = () => setWhatIfFromMachine(parseInt(select.value));
+}
+
+function setWhatIfFromMachine(machineId) {
+    const m = whatIfMachinesCache.find(x => Number(x.machine_id) === Number(machineId));
+    if (!m) return;
+    const fields = [["whatIfTemp",m.temperature],["whatIfVib",m.vibration],["whatIfHum",m.humidity],["whatIfPressure",m.pressure],["whatIfEnergy",m.energy_consumption]];
+    fields.forEach(([id,value]) => document.getElementById(id).value = value);
+    updateWhatIfLabels();
+    document.getElementById("whatIfResult").classList.add("hidden");
+}
+
+function updateWhatIfLabels() {
+    document.getElementById("whatIfTempValue").textContent = Number(document.getElementById("whatIfTemp").value).toFixed(1) + " °C";
+    document.getElementById("whatIfVibValue").textContent = Number(document.getElementById("whatIfVib").value).toFixed(2);
+    document.getElementById("whatIfHumValue").textContent = Number(document.getElementById("whatIfHum").value).toFixed(1) + " %";
+    document.getElementById("whatIfPressureValue").textContent = Number(document.getElementById("whatIfPressure").value).toFixed(1);
+    document.getElementById("whatIfEnergyValue").textContent = Number(document.getElementById("whatIfEnergy").value).toFixed(1);
+}
+
+["whatIfTemp","whatIfVib","whatIfHum","whatIfPressure","whatIfEnergy"].forEach(id => {
+    document.getElementById(id)?.addEventListener("input", updateWhatIfLabels);
+});
+
+async function runWhatIf() {
+    const payload = {
+        machine_id: parseInt(document.getElementById("whatIfMachine").value),
+        temperature: Number(document.getElementById("whatIfTemp").value),
+        vibration: Number(document.getElementById("whatIfVib").value),
+        humidity: Number(document.getElementById("whatIfHum").value),
+        pressure: Number(document.getElementById("whatIfPressure").value),
+        energy_consumption: Number(document.getElementById("whatIfEnergy").value)
+    };
+    try {
+        const result = await api("/api/simulate", {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(payload)});
+        document.getElementById("whatIfRisk").textContent = result.risk_score + "%";
+        document.getElementById("whatIfCondition").textContent = result.condition;
+        document.getElementById("whatIfRecommendation").textContent = result.recommendation;
+        document.getElementById("whatIfResult").classList.remove("hidden");
+    } catch (error) { console.error(error); document.getElementById("whatIfResult").classList.remove("hidden"); document.getElementById("whatIfRecommendation").textContent = "Simulation failed. Check that the backend is running."; }
+}
+
+/* ============================================================
+   MAINTENANCE CENTER
+============================================================ */
+function heuristicRisk(m) {
+    if (m && Number.isFinite(Number(m.risk_score))) return Number(m.risk_score);
+    let score = 0;
+    if (Number(m.temperature) >= 90) score += 35; else if (Number(m.temperature) >= 75) score += 20;
+    if (Number(m.vibration) >= 90) score += 35; else if (Number(m.vibration) >= 70) score += 20;
+    if (Number(m.pressure) <= 1.5 || Number(m.pressure) >= 4.5) score += 20; else if (Number(m.pressure) <= 2 || Number(m.pressure) >= 4) score += 10;
+    if (Number(m.energy_consumption) >= 4.5) score += 10; else if (Number(m.energy_consumption) >= 3.8) score += 5;
+    return Math.min(100, score);
+}
+function conditionFromRisk(r) { return r>=75?"Critical":r>=50?"Warning":r>=25?"Watch":"Healthy"; }
+function statusPill(condition) { return `<span class="status-pill status-${condition.toLowerCase()}">${condition.toUpperCase()}</span>`; }
+
+async function loadMaintenanceCenter() {
+    const summary = document.getElementById("maintenanceSummary");
+    const table = document.getElementById("maintenanceTable");
+
+    if (!summary || !table) return;
+
+    summary.innerHTML = `<div class="metric-mini"><span>Loading</span><strong>...</strong></div>`;
+    table.innerHTML = `<div style="padding:20px;color:#9daab7">Loading maintenance data...</div>`;
+
+    try {
+        const machines = await api("/api/machines");
+
+        if (!Array.isArray(machines) || machines.length === 0) {
+            summary.innerHTML = `<div class="metric-mini"><span>Total Machines</span><strong>0</strong></div>`;
+            table.innerHTML = `<div style="padding:20px;color:#9daab7">No machine data available.</div>`;
+            return;
+        }
+
+        // Use the machine's actual maintenance/anomaly fields first.
+        // Risk is used only to prioritize machines that need attention.
+        const enriched = machines.map(m => {
+            const risk = Number.isFinite(Number(m.risk_score))
+                ? Number(m.risk_score)
+                : heuristicRisk(m);
+
+            const maintenanceRequired =
+                m.maintenance_required === true ||
+                m.maintenance_required === 1 ||
+                String(m.maintenance_required).toLowerCase() === "true" ||
+                String(m.maintenance_required).toLowerCase() === "required";
+
+            const anomaly =
+                m.anomaly === true ||
+                m.anomaly === 1 ||
+                m.anomaly_flag === true ||
+                m.anomaly_flag === 1;
+
+            // A machine marked for maintenance/anomaly should never be shown as healthy.
+            const priorityRisk = maintenanceRequired || anomaly
+                ? Math.max(risk, 25)
+                : risk;
+
+            return {
+                ...m,
+                uiRisk: Math.round(Math.min(100, Math.max(0, priorityRisk))),
+                maintenanceRequired,
+                anomaly
+            };
+        }).sort((a, b) => {
+            if (b.uiRisk !== a.uiRisk) return b.uiRisk - a.uiRisk;
+            return Number(a.machine_id) - Number(b.machine_id);
+        });
+
+        const counts = { Healthy: 0, Watch: 0, Warning: 0, Critical: 0 };
+        enriched.forEach(m => counts[conditionFromRisk(m.uiRisk)]++);
+
+        const requiredCount = enriched.filter(m => m.maintenanceRequired).length;
+        const anomalyCount = enriched.filter(m => m.anomaly).length;
+
+        summary.innerHTML = `
+            <div class="metric-mini">
+                <span>Total Machines</span>
+                <strong>${enriched.length}</strong>
+            </div>
+            <div class="metric-mini">
+                <span>Maintenance Required</span>
+                <strong>${requiredCount}</strong>
+            </div>
+            <div class="metric-mini">
+                <span>Anomaly Machines</span>
+                <strong>${anomalyCount}</strong>
+            </div>
+            <div class="metric-mini">
+                <span>Critical</span>
+                <strong>${counts.Critical}</strong>
+            </div>
+            <div class="metric-mini">
+                <span>Warning</span>
+                <strong>${counts.Warning}</strong>
+            </div>
+            <div class="metric-mini">
+                <span>Watch</span>
+                <strong>${counts.Watch}</strong>
+            </div>
+        `;
+
+        const priorityMachines = enriched.filter(m =>
+            m.maintenanceRequired || m.anomaly || m.uiRisk >= 25
+        );
+
+        const displayMachines = priorityMachines.length > 0
+            ? priorityMachines.slice(0, 20)
+            : enriched.slice(0, 20);
+
+        const actionFor = condition => {
+            if (condition === "Critical") return "Immediate inspection";
+            if (condition === "Warning") return "Schedule maintenance";
+            if (condition === "Watch") return "Monitor closely";
+            return "Routine maintenance";
+        };
+
+        table.innerHTML = `
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:16px;flex-wrap:wrap">
+                <div>
+                    <h3 style="margin:0 0 5px;color:#e8edf2">Maintenance Priority Queue</h3>
+                    <p style="margin:0;color:#8fa0ae;font-size:13px">
+                        Machines are prioritized using current machine condition, anomaly status and maintenance requirement.
+                    </p>
+                </div>
+                <button type="button" onclick="loadMaintenanceCenter()" class="secondary-btn">↻ Refresh</button>
+            </div>
+
+            <div style="overflow-x:auto">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Machine</th>
+                            <th>Priority</th>
+                            <th>Risk</th>
+                            <th>Temperature</th>
+                            <th>Vibration</th>
+                            <th>Maintenance</th>
+                            <th>Recommended Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${displayMachines.map(m => {
+                            const condition = conditionFromRisk(m.uiRisk);
+                            const temp = Number(m.temperature);
+                            const vibration = Number(m.vibration);
+                            return `
+                                <tr>
+                                    <td><strong>Machine ${m.machine_id}</strong></td>
+                                    <td>${statusPill(condition)}</td>
+                                    <td><strong>${m.uiRisk}%</strong></td>
+                                    <td>${Number.isFinite(temp) ? temp.toFixed(1) + " °C" : "-"}</td>
+                                    <td>${Number.isFinite(vibration) ? vibration.toFixed(2) : "-"}</td>
+                                    <td>${m.maintenanceRequired ? "<span class=\"maintenance-required\">Required</span>" : "Not required"}</td>
+                                    <td>${actionFor(condition)}</td>
+                                </tr>
+                            `;
+                        }).join("")}
+                    </tbody>
+                </table>
+            </div>
+
+            ${displayMachines.length === 0 ? `
+                <div style="padding:25px;text-align:center;color:#9daab7">
+                    No maintenance-priority machines found.
+                </div>
+            ` : ""}
+        `;
+    } catch (error) {
+        console.error("Maintenance Center error:", error);
+        summary.innerHTML = `
+            <div class="metric-mini"><span>Status</span><strong>Unavailable</strong></div>
+        `;
+        table.innerHTML = `
+            <div style="padding:25px;color:#ff9b9b;background:#24181b;border:1px solid #4b292e;border-radius:10px">
+                Unable to load maintenance data. Make sure the MachineGuard backend is running, then click Refresh.
+            </div>
+        `;
+    }
+}
+
+/* ============================================================
+   ANALYTICS
+============================================================ */
+async function loadAnalytics() {
+    const machines = await api("/api/machines");
+    const avg = key => machines.reduce((a,m)=>a+Number(m[key]||0),0)/machines.length;
+    const counts={Healthy:0,Watch:0,Warning:0,Critical:0}; machines.forEach(m=>counts[conditionFromRisk(heuristicRisk(m))]++);
+    document.getElementById("analyticsMetrics").innerHTML = `
+      <div class="metric-mini"><span>Machines</span><strong>${machines.length}</strong></div>
+      <div class="metric-mini"><span>Avg Temperature</span><strong>${avg("temperature").toFixed(1)}°</strong></div>
+      <div class="metric-mini"><span>Avg Vibration</span><strong>${avg("vibration").toFixed(2)}</strong></div>
+      <div class="metric-mini"><span>Maintenance Required</span><strong>${machines.filter(m=>m.maintenance_required).length}</strong></div>`;
+    if (analyticsRiskChart) analyticsRiskChart.destroy();
+    if (analyticsSensorChart) analyticsSensorChart.destroy();
+    analyticsRiskChart = new Chart(document.getElementById("analyticsRiskChart"), {type:"bar", data:{labels:Object.keys(counts),datasets:[{label:"Machines",data:Object.values(counts)}]}, options:{responsive:true,plugins:{legend:{display:false}}}});
+    analyticsSensorChart = new Chart(document.getElementById("analyticsSensorChart"), {type:"bar", data:{labels:["Temperature","Vibration","Humidity","Pressure","Energy"],datasets:[{label:"Average",data:[avg("temperature"),avg("vibration"),avg("humidity"),avg("pressure"),avg("energy_consumption")]}]}, options:{responsive:true,plugins:{legend:{display:false}}}});
+}
+
+/* ============================================================
+   REPORTS
+============================================================ */
+async function buildReport() {
+    const machines = await api("/api/machines");
+    const counts={Healthy:0,Watch:0,Warning:0,Critical:0}; machines.forEach(m=>counts[conditionFromRisk(heuristicRisk(m))]++);
+    const rows=machines.slice().sort((a,b)=>heuristicRisk(b)-heuristicRisk(a)).slice(0,10).map(m=>`<tr><td>Machine ${m.machine_id}</td><td>${conditionFromRisk(heuristicRisk(m))}</td><td>${heuristicRisk(m)}%</td><td>${m.temperature} °C</td><td>${m.vibration}</td></tr>`).join("");
+    return `<!doctype html><html><head><meta charset="utf-8"><title>MachineGuard AI Report</title><style>body{font-family:Arial;padding:35px;color:#1d2730}h1{margin-bottom:4px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.box{border:1px solid #ddd;padding:15px;border-radius:8px}table{width:100%;border-collapse:collapse;margin-top:25px}th,td{padding:10px;border-bottom:1px solid #ddd;text-align:left}small{color:#667}</style></head><body><h1>MachineGuard AI — Factory Report</h1><small>Generated ${new Date().toLocaleString()}</small><h2>Factory Overview</h2><div class="grid">${Object.entries(counts).map(([k,v])=>`<div class="box"><small>${k}</small><h2>${v}</h2></div>`).join("")}</div><h2>Top Risk Machines</h2><table><thead><tr><th>Machine</th><th>Condition</th><th>Risk</th><th>Temperature</th><th>Vibration</th></tr></thead><tbody>${rows}</tbody></table><p><small>This report is based on the current historical/simulated dataset readings. It is a prototype and not a real-time IoT measurement report.</small></p></body></html>`;
+}
+async function generateReport() {
+    latestReportHtml = await buildReport();
+    document.getElementById("reportPreview").innerHTML = "Report generated successfully. The download contains the current factory summary and top-risk machines.";
+    const blob = new Blob([latestReportHtml], {type:"text/html"});
+    const url = URL.createObjectURL(blob); const a=document.createElement("a"); a.href=url; a.download="MachineGuard_AI_Report.html"; a.click(); URL.revokeObjectURL(url);
+}
+async function printReport() {
+    if (!latestReportHtml) latestReportHtml = await buildReport();
+    const w=window.open("", "_blank"); if(!w){ document.getElementById("reportPreview").textContent = "Allow pop-ups in the browser to print the report."; return; } w.document.write(latestReportHtml); w.document.close(); w.focus(); setTimeout(()=>w.print(),300);
+}
+async function loadReportPreview() {
+    if (!latestReportHtml) document.getElementById("reportPreview").textContent = "Generate a report when you are ready.";
+}
+
+async function resetSimulation() {
+    if (!confirm("Reset every machine to its first dataset record and clear analysis history and alerts?")) return;
+    try { await api("/api/machines/reset", {method:"POST"}); await loadDashboard(); await loadMachines(); await refreshLiveDashboard(); const id=parseInt(document.getElementById("machineSelect").value); await loadMachineDetail(id); document.getElementById("simulationUpdated").textContent="Simulation reset complete"; }
+    catch(e){console.error(e);document.getElementById("simulationUpdated").textContent="Reset failed — check that the backend is running.";}
+}
+
 /* ============================================================
    INITIALIZATION
 ============================================================ */
@@ -2684,6 +3553,14 @@ async function init() {
         await loadDashboard();
 
         await loadMachines();
+
+        await refreshLiveDashboard();
+        updateWhatIfLabels();
+
+        setInterval(
+            refreshLiveDashboard,
+            5000
+        );
 
     }
 
@@ -2719,6 +3596,7 @@ async function init() {
 init();
 
 </script>
+
 
 </body>
 
